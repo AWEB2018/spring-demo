@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="dsRef"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/DAC2018" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+
+	<bean id="refJdbc" class="com.dac.jdbc.DemoJdbc1">
+		<property name="datasource" ref="dsRef"></property>
+	</bean>
+
+
+	<bean id="refJdbc2" class="com.dac.jdbc.DemoJdbc2">
+		<property name="datasource" ref="dsRef"></property>
+	</bean>
+
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dsRef"></property>
+	</bean>
+
+	<bean id="refJdbc3" class="com.dac.jdbc.DemoJdbc3">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+
+
+
+
+
+</beans>
