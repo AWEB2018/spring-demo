@@ -11,6 +11,32 @@
 	
 	
 	<bean id="bean1" name="bean1" class="com.dac.Sample">
+		<constructor-arg index="0" value="Some title"></constructor-arg>
+		<constructor-arg index="1" value="Some Desc!!"></constructor-arg>
 	</bean>
+	
+	<bean id="bean2" class="com.dac.Sample">
+		<property name="title" value="Hello CDAC!!!"></property>
+	</bean>
+	
+	<!-- DI -->
+	<bean id="emp1" name="emp1" class="com.dac.Employee">
+		<property name="id" value="001"></property>
+		<property name="fullname" value="CDAC KHARGHAR"></property>
+	</bean>
+	
+	<bean id="emp2" name="emp" class="com.dac.Employee">
+		<property name="id" value="002"></property>
+		<property name="fullname" value="CDAC KHARGHAR Return!!"></property>
+	</bean>
+	
+	<bean id="comp1" class="com.dac.Company">
+		<property name="emp" ref="emp1"></property>
+	</bean>
+	
+	<bean id="comp2" class="com.dac.Company" autowire="byName">
+	</bean>
+	
+	
 	
 </beans>
