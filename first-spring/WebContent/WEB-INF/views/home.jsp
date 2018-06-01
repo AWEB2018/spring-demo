@@ -21,7 +21,11 @@
 <body>
 	<div class="container-fluid">
 		<div class="row bg-primary text-white " style="height: 60px;">
-			<div class="col-sm-12 make-center">Home Page</div>
+			<div class="col-sm-2 make-center">Home Page</div>
+			<div class="col-sm-8 "></div>
+			<div class="col-sm-2  make-center">
+				<a  href="logout" class="text-white">Log Out</a>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-3"></div>

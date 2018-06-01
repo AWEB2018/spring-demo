@@ -28,6 +28,8 @@
     <div class="form-group col-md-6">
       <label for="inputEmail4">UserName</label>
       <input type="text" name="uname" class="form-control" id="inputEmail4" placeholder="UserName">
+		<small id="usernameHelp" class="form-text text-danger">${USERNAME_MISSING}</small>
+      
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>

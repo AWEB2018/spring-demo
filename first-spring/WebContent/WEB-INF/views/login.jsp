@@ -17,18 +17,23 @@
 		<div class="col-sm-7"></div>
 		<div class="col-sm-4 bg-light">
 			<form action="login-action" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">UserName </label>
-    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">UserName </label>
+			    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			    <small id="usernameHelp" class="form-text text-danger">${USERNAME_MISSING}</small>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			    <small id="passwordHelp" class="form-text text-muted">${PASSWORD_MISSING}</small>
+			  </div>
+			  
+			  <button type="submit" class="btn btn-primary">Login</button>
+			</form>
+			
+			<div class="col-sm-12 text-danger">
+				${ERROR}
+			</div>
 		</div>
 		
 	</div>

@@ -36,11 +36,18 @@ public class FirstSpringMVC {
 		String uname=req.getParameter("uname");
 		String pwd=req.getParameter("pwd");
 		
+		if("".equalsIgnoreCase(uname)) {
+			ref.addObject("USERNAME_MISSING", "User Name Missing");
+		}
+		
 		boolean result=userDao.loginUser(uname, pwd);
 		if(result) {
-			return this.homePageController();
+			req.getSession().setAttribute("AUTH_SUCCESS", true);
+			return this.homePageController(req);
+			//ref.setViewName("home");
 		}
 		else {
+			ref.addObject("ERROR", "Authentication Fails!!");
 			ref.setViewName("login");
 		}
 		
@@ -68,10 +75,15 @@ public class FirstSpringMVC {
 		String lname=req.getParameter("lname");
 		String mobile=req.getParameter("mobile");
 		
+		if("".equalsIgnoreCase(uname)) {
+
+			ref.addObject("USERNAME_MISSING", "Username cant be empty");
+			ref.setViewName("register");
+		} else {
+			userDao.createUser(uname, pwd, fname, lname, mobile);
+			ref.setViewName("login");
+		}
 		
-		userDao.createUser(uname, pwd, fname, lname, mobile);
-		
-		ref.setViewName("login");
 		return ref;
 	}
 	
@@ -79,13 +91,37 @@ public class FirstSpringMVC {
 	
 	@GetMapping
 	@RequestMapping("/home")
-	public ModelAndView homePageController() {
+	public ModelAndView homePageController(HttpServletRequest req) {
 		ModelAndView ref=new ModelAndView();
 		
-		List<Map<String, Object>> userList = userDao.readAll();
-		ref.addObject("userList", userList);
+		if(req.getSession().getAttribute("AUTH_SUCCESS") != null) {
+			List<Map<String, Object>> userList = userDao.readAll();
+			ref.addObject("userList", userList);
+			
+			ref.setViewName("home");
+		} else {
+			
+			ref.addObject("ERROR", "Login required.");
+			ref.setViewName("login");
+		}
 		
-		ref.setViewName("home");
+		
 		return ref;
 	}
+	
+	
+	@GetMapping
+	@RequestMapping("/logout")
+	public ModelAndView logOut(HttpServletRequest req) {
+		ModelAndView ref = new ModelAndView();
+		
+		// KEY TO REMOVE SESSSION
+		req.getSession().removeAttribute("AUTH_SUCCESS");
+		
+		ref.setViewName("login");
+		return ref;
+	}
+	
+	
+	
 }
