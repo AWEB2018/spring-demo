@@ -22,9 +22,12 @@
 	<div class="container-fluid">
 		<div class="row bg-primary text-white " style="height: 60px;">
 			<div class="col-sm-2 make-center">Home Page</div>
-			<div class="col-sm-8 "></div>
+			<div class="col-sm-7 "></div>
+			<div class="col-sm-1  make-center">
+				<a  href="register" class="text-white">Register</a>
+			</div>
 			<div class="col-sm-2  make-center">
-				<a  href="logout" class="text-white">Log Out</a>
+				<a  href="logout" class="text-white">Log Out (${UNAME})</a>
 			</div>
 		</div>
 		<div class="row">
@@ -54,7 +57,9 @@
       <td><%= row.get("LAST_NAME") %></td>
       <td><%= row.get("MOBILE_NO") %></td>
       <td><%= row.get("USERNAME") %></td>
-      <td class="text-danger">DELETE</td>
+      <td >
+      	<a href="deleteUser?id=<%=row.get("ID") %>"  class="text-danger">DELETE</a>
+      </td>
     </tr>
     <%}%>
   </tbody>

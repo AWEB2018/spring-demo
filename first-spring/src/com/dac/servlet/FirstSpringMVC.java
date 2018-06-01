@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.eclipse.jdt.internal.compiler.parser.ParserBasicInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,7 @@ public class FirstSpringMVC {
 		
 		boolean result=userDao.loginUser(uname, pwd);
 		if(result) {
+			req.getSession().setAttribute("UNAME", uname);
 			req.getSession().setAttribute("AUTH_SUCCESS", true);
 			return this.homePageController(req);
 			//ref.setViewName("home");
@@ -122,6 +124,20 @@ public class FirstSpringMVC {
 		return ref;
 	}
 	
+	
+	@GetMapping
+	@RequestMapping("/deleteUser")
+	public ModelAndView deleteUser(HttpServletRequest req) {
+		ModelAndView ref = new ModelAndView();
+		
+		String sid = req.getParameter("id");
+		
+		int id = Integer.parseInt(sid);
+		userDao.deleteUser(id);
+		
+		return this.homePageController(req);
+		
+	}
 	
 	
 }

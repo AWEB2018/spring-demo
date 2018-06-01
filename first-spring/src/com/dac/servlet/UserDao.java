@@ -40,6 +40,16 @@ public class UserDao {
 	
 	
 	
+	public boolean deleteUser(int id) {
+		
+		String sql = "DELETE FROM USER WHERE ID =?";
+		jdbcTemplate.update(sql, id);
+		
+		return true;
+	}
+	
+	
+	
 	
 	
 	
