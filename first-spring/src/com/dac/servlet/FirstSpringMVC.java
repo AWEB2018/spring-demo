@@ -29,7 +29,7 @@ public class FirstSpringMVC {
 		return ref;
 	}
 	
-	@GetMapping
+	@PostMapping
 	@RequestMapping("/login-action")
 	public ModelAndView loginActionController(HttpServletRequest req ) {
 		ModelAndView ref=new ModelAndView();
@@ -38,7 +38,7 @@ public class FirstSpringMVC {
 		
 		boolean result=userDao.loginUser(uname, pwd);
 		if(result) {
-			ref.setViewName("home");
+			return this.homePageController();
 		}
 		else {
 			ref.setViewName("login");

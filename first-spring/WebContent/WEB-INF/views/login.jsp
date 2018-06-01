@@ -16,7 +16,7 @@
 	<div class="row ">
 		<div class="col-sm-7"></div>
 		<div class="col-sm-4 bg-light">
-			<form action="login-action" method="get">
+			<form action="login-action" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">UserName </label>
     <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

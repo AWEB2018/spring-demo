@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6 bg-light ">
-				<form method="get" action="register-action">
+				<form method="post" action="register-action">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">UserName</label>
