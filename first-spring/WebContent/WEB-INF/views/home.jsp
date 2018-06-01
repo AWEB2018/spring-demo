@@ -25,8 +25,14 @@
 			<div class="col-sm-7 ">
 				
 				<form action="searchUser">
-					<input name="search" class="col-sm-6  " type="text" placeholder="Search">
-					<button type="submit" class="col-sm-2 text-white btn btn-info">Search</button>
+					<div class="row ">
+						<div class="col-sm-10 ">
+							<input name="search" class=" form-control" type="text" placeholder="Search">
+						</div>
+						<div class="col-sm-2">
+							<button type="submit" class="text-white btn btn-info make-center">Search</button>
+						</div>
+					</div>
 				</form>
 			</div>
 			
