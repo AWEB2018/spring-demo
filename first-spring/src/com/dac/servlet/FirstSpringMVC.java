@@ -140,4 +140,18 @@ public class FirstSpringMVC {
 	}
 	
 	
+	@GetMapping
+	@RequestMapping("/searchUser")
+	public ModelAndView searchUser(HttpServletRequest req) {
+		ModelAndView ref = new ModelAndView();
+		
+		String unameSearch = req.getParameter("search");
+		List<Map<String, Object>> userList = userDao.searchUser(unameSearch);
+		ref.addObject("userList", userList);
+		
+		ref.setViewName("home");
+		return ref; 
+	}
+	
+	
 }

@@ -48,7 +48,10 @@ public class UserDao {
 		return true;
 	}
 	
-	
+	public List<Map<String, Object>> searchUser(String uname) {
+		String sql = "SELECT * FROM USER WHERE USERNAME LIKE '%" + uname + "%'";
+		return jdbcTemplate.queryForList(sql);
+	}
 	
 	
 	

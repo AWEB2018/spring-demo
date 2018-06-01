@@ -22,7 +22,15 @@
 	<div class="container-fluid">
 		<div class="row bg-primary text-white " style="height: 60px;">
 			<div class="col-sm-2 make-center">Home Page</div>
-			<div class="col-sm-7 "></div>
+			<div class="col-sm-7 ">
+				
+				<form action="searchUser">
+					<input name="search" class="col-sm-6  " type="text" placeholder="Search">
+					<button type="submit" class="col-sm-2 text-white btn btn-info">Search</button>
+				</form>
+			</div>
+			
+			
 			<div class="col-sm-1  make-center">
 				<a  href="register" class="text-white">Register</a>
 			</div>
@@ -31,8 +39,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6 bg-light">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8 bg-light">
 				<table class="table">
   <thead>
     <tr>
@@ -41,7 +49,8 @@
       <th scope="col">LAST_NAME</th>
       <th scope="col">MOBILE_NO</th>
       <th scope="col">USERNAME</th>
-      <th scope="col">Action</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   
@@ -57,6 +66,7 @@
       <td><%= row.get("LAST_NAME") %></td>
       <td><%= row.get("MOBILE_NO") %></td>
       <td><%= row.get("USERNAME") %></td>
+      <td><a href="#"  class="text-warning">Update</a></td>
       <td >
       	<a href="deleteUser?id=<%=row.get("ID") %>"  class="text-danger">DELETE</a>
       </td>
